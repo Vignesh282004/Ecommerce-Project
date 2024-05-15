@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Winkel - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href=
+                  "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity=
+                  "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/catupdate.js}"></script>
+    <!--    <script src =  "catupdate.js"></script> -->
+</head>
+<body>
+
+<div class="container-fluid">
+    <form class="form-horizontal" th:action="@{/update-prod/{id}(id = ${productDao.id})}" method="post" th:object = "${productDao}"
+          enctype="multipart/form-data">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>UPDATE PRODUCT</legend>
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+                <div class="col-md-4">
+                    <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="product_categories">PRODUCT CATEGORY</label>
+                <div class="col-md-4">
+                    <select id="product_categories" th:field = "*{category}" name="product_categories" class="form-control">
+                        <option th:value = "null">-SELECT-</option>
+                        <option th:each = "category : ${categories}"
+                                th:value = "${category.id}"
+                                th:text = "${category.name}">
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+                <div class="col-md-4">
+                    <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
+                <div class="col-md-4">
+                    <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="price">PRICE</label>
+                <div class="col-md-4">
+                    <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4">
+                    <input id="url" name="currentPage" th:field = "*{currentPage}" class="form-control input-md" required="" type="hidden">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <!-- File Button -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="image">PRODUCT IMAGE</label>
+                        <div class="col-md-4">
+                            <img class = "my-product-image" style="height: 40px; width: 40px;" alt="" th:src="'data:image/jpeg;base64,' + *{image}">
+                            <input id="image" name="imageProduct" class="input-file" type="file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </fieldset>
+    </form>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

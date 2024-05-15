@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+</head>
+<body>
+<section class="container">
+    <div th:if="${error}" class="text-center alert alert-success">
+        <p th:text="${error}"></p>
+    </div>
+    <div th:if = "${param.logout}" class="alert alert-success text-center">
+        You have been logged out!
+    </div>
+    <header>Login Page</header>
+    <form th:action="@{/do-login}" method="post" class="form">
+        <div class="input-box">
+            <label>Enter Email</label>
+            <input type="text" name="username" id="username" placeholder="Enter Email " required />
+        </div>
+
+        <div class="input-box">
+            <label>Password</label>
+            <input type="text" name="password" id="password"   placeholder="Enter Your Password" required />
+        </div>
+        <button type="submit">Login</button>
+        <button type="submit">
+            <a th:href="@{/forgot-password}">Forgot Password</a>
+        </button>
+        <button type="submit">
+            <a th:href="@{/custregister}">Register</a>
+        </button>
+    </form>
+</section>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Yinka Enoch Adedokun">
+    <meta name="description" content="Simple Forgot Password Page Using HTML and CSS">
+    <meta name="keywords" content="forgot password page, basic html and css">
+    <title>Forgot Password Page </title>
+
+</head>
+<body>
+<div class="row">
+    <h1>Forgot Password</h1>
+
+
+    <h3 class="information-text">Enter your registered email only  to reset your password. if not registered Register First</h3>
+    <div th:if="${success}" class="text-center alert alert-danger">
+        <p th:text="${success}"></p>
+    </div>
+    <div th:if="${failed}" class="text-center alert alert-danger">
+        <p th:text="${failed}"></p>
+    </div>
+    <form method="post" th:action = "@{/send-otp}">
+        <div class="form-group">
+            <p><label for="email">Email</label></p>
+            <input type="email" name="email" id="email" placeholder="Enter Your Mail" required="required">
+            <button onclick="showSpinner()">Send Otp</button>
+        </div>
+        <button type="submit">
+            <a th:href="@{/custregister}">Register</a>
+        </button>
+    </form>
+</div>
+</body>
