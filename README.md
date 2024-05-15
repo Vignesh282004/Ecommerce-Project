@@ -12,6 +12,9 @@
 ## Features
    # Only Admin can work with Products and Categories
    # Customer Dont have access to perform crud opertaions on products and categories
+   #  Endpoints Are Accessed according to Roles.
+
+   
 1. **Products and Categories:**
    - CRUD operations for managing products and categories.
    - Users can sort products according to category.
@@ -26,7 +29,7 @@
    - Secure user authentication.
 
 4. **Product Sorting:**
-   - Users can sort products based on category.
+   - Users can fetch products based on category.
    - User can sort products using Price-High-low Price and from  low-high  --Price
 
 5. **Shopping Cart:**
