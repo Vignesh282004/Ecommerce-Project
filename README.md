@@ -2,7 +2,7 @@
 
 # ShopZ
 
-
+> This is an Springboot Multi-Module Project.
 > Spring Boot E-Commerce project---> ShopZ 
 > Technologies Used -- Java, SpringBoot, SpringSecurity, Spring Data Jpa, Thymeleaf, Html, Css, BootStrap.
 > Database Used - MySql
